@@ -39,9 +39,8 @@ class Group(core.models.Model):
             'Adresse der Gruppenseite', blank=True, null=True, unique=True,
             validators=[validate_slug])
 
-    address = models.TextField(
-            'Anschrift',
-            blank=True)
+    address = models.TextField('Anschrift', blank=True)
+    location = django.contrib.gis.db.models.PointField(null=True)
     avatar = core.models.ImageField(blank=True)
     avatar_color = models.CharField(
             max_length=7,
